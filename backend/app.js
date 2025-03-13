@@ -1,13 +1,17 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var placement = require('./routes/placement');
-var search = require('./routes/search');
+let placementRouter = require('./routes/placement');
+let searchRouter = require('./routes/search');
+let retrieveRouter = require('./routes/retrieve');
+let placeRouter = require('./routes/place');
+let wasteRouter = require('./routes/waste');
+let simulateRouter = require('./routes/simulate');
+let importRouter = require('./routes/import');
 
-var app = express();
+let app = express();
 
 // view engine setup
 
@@ -17,23 +21,17 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/placement', placement);
-app.use('/api/search', search);
+app.use('/api/placement', placementRouter);
+app.use('/api/search', searchRouter);
+app.use('/api/retrieve', retrieveRouter);
+app.use('/api/place', placeRouter);
+app.use('/api/waste', wasteRouter);
+app.use('/api/simulate', simulateRouter);
+app.use('/api/import', importRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function (req, res) {
     res.sendStatus(404);
-});
-
-// error handler
-app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
 });
 
 module.exports = app;

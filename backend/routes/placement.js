@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
 /* POST /api/placement */
 router.get('/', function (req, res, next) {
     res.json(["placement"]);
+    next();
 });
 
 // Request Body:
