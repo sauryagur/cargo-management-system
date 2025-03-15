@@ -1,68 +1,41 @@
-# Use Ubuntu 22.04 as the base image (per auto-tester requirements)
+# Use Ubuntu 22.04 as the base image
 FROM ubuntu:22.04
 
-# Set environment variables for PostgreSQL
-ENV POSTGRES_USER=admin
-ENV POSTGRES_PASSWORD=admin
-ENV POSTGRES_DB=cargo_db
+# Install necessary dependencies
+RUN apt-get update && \
+    apt-get install -y curl ca-certificates gnupg && \
+    mkdir -p /etc/apt/keyrings && \
+    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list && \
+    apt-get update && \
+    apt-get install -y nodejs && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Update package lists and install necessary dependencies
-RUN apt-get update && apt-get install -y \
-    ca-certificates curl gnupg \
-    postgresql postgresql-contrib \
-    nodejs npm \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+# Install PM2 globally to manage multiple processes
+RUN npm install -g pm2 pnpm
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# -----------------------------------
-# 1️⃣ SETUP DATABASE (PostgreSQL)
-# -----------------------------------
-# Copy the database initialization script
-COPY database/init.sql /docker-entrypoint-initdb.d/
+# Copy package files separately to leverage Docker cache
+COPY backend/package*.json backend/
+COPY frontend/package*.json frontend/
 
-# Start PostgreSQL service, create database and user
-RUN service postgresql start && \
-    sudo -u postgres psql -c "ALTER USER $POSTGRES_USER WITH PASSWORD '$POSTGRES_PASSWORD';" && \
-    sudo -u postgres psql -c "CREATE DATABASE $POSTGRES_DB;"
+# Install dependencies
+RUN cd backend && npm install
+RUN cd frontend && pnpm install
 
-# -----------------------------------
-# 2️⃣ SETUP BACKEND (Express.js API)
-# -----------------------------------
-# Copy backend dependencies and install them
-WORKDIR /app/backend
-COPY backend/package*.json ./
-RUN npm install
+# Copy the entire project into the container
+COPY . .
 
-# Copy the entire backend source code
-COPY backend .
+# Build the frontend (Next.js)
+RUN cd frontend && pnpm build
 
-# -----------------------------------
-# 3️⃣ SETUP FRONTEND (React)
-# -----------------------------------
-# Move to frontend directory
-WORKDIR /app/frontend
+# Expose necessary ports
+EXPOSE 3000 8000
 
-# Copy frontend dependencies and install them
-COPY frontend/package*.json ./
-RUN npm install
+# Define PM2 process manager configuration
+COPY ecosystem.config.js .
 
-# Copy the entire frontend source code
-COPY frontend .
-
-# Build the frontend (React production build)
-RUN npm run build
-
-# -----------------------------------
-# 4️⃣ RUN EVERYTHING TOGETHER
-# -----------------------------------
-# Expose port 8000 (required by auto-tester)
-EXPOSE 8000
-
-# Command to start PostgreSQL, backend, and serve frontend
-CMD service postgresql start && \
-    sudo -u postgres psql -c "ALTER USER $POSTGRES_USER WITH PASSWORD '$POSTGRES_PASSWORD';" && \
-    sudo -u postgres psql -c "CREATE DATABASE $POSTGRES_DB;" && \
-    (cd /app/frontend && npm install -g serve && serve -s build -l 3000 &) && \
-    (cd /app/backend && node src/app.js)
+# Start both frontend and backend using PM2
+CMD ["pm2-runtime", "start", "ecosystem.config.js"]
