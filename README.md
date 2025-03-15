@@ -58,25 +58,128 @@ podman run --publish 3000:3000 --publish 8000:8000 --name cms-container cms
 ## Project Structure
 
 ```
-├───backend
-│   ├───bin
-│   ├───models
-│   ├───public
-│   │   └───stylesheets
-│   ├───routes
-│   └───services
-└───frontend
-    ├───app
-    ├───components
-    │   ├───pages
-    │   └───ui
-    ├───hooks
-    ├───lib
-    ├───public
-    ├───src
-    │   └───components
-    │       └───pages
-    └───styles
+.
+├── Dockerfile
+├── README.md
+├── backend
+│   ├── app.js
+│   ├── bin
+│   │   └── www
+│   ├── models
+│   │   ├── container.js
+│   │   ├── item.js
+│   │   ├── logEntry.js
+│   │   └── position.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public
+│   │   └── stylesheets
+│   │       └── style.css
+│   ├── routes
+│   │   ├── import.js
+│   │   ├── logs.js
+│   │   ├── place.js
+│   │   ├── placement.js
+│   │   ├── retrieve.js
+│   │   ├── search.js
+│   │   ├── simulate.js
+│   │   └── waste.js
+│   └── services
+│       └── storageService.js
+├── ecosystem.config.js
+└── frontend
+    ├── app
+    │   ├── globals.css
+    │   ├── layout.tsx
+    │   ├── page.tsx
+    │   └── providers.tsx
+    ├── components
+    │   ├── cargo-management-system.tsx
+    │   ├── container-view.tsx
+    │   ├── pages
+    │   │   ├── import-page.tsx
+    │   │   ├── logs-page.tsx
+    │   │   ├── placement-page.tsx
+    │   │   ├── search-page.tsx
+    │   │   ├── simulate-page.tsx
+    │   │   └── waste-page.tsx
+    │   ├── room-display.tsx
+    │   ├── sidebar.tsx
+    │   ├── theme-provider.tsx
+    │   └── ui
+    │       ├── accordion.tsx
+    │       ├── alert-dialog.tsx
+    │       ├── alert.tsx
+    │       ├── aspect-ratio.tsx
+    │       ├── avatar.tsx
+    │       ├── badge.tsx
+    │       ├── breadcrumb.tsx
+    │       ├── button.tsx
+    │       ├── calendar.tsx
+    │       ├── card.tsx
+    │       ├── carousel.tsx
+    │       ├── chart.tsx
+    │       ├── checkbox.tsx
+    │       ├── collapsible.tsx
+    │       ├── command.tsx
+    │       ├── context-menu.tsx
+    │       ├── dialog.tsx
+    │       ├── drawer.tsx
+    │       ├── dropdown-menu.tsx
+    │       ├── form.tsx
+    │       ├── hover-card.tsx
+    │       ├── input-otp.tsx
+    │       ├── input.tsx
+    │       ├── label.tsx
+    │       ├── menubar.tsx
+    │       ├── navigation-menu.tsx
+    │       ├── pagination.tsx
+    │       ├── popover.tsx
+    │       ├── progress.tsx
+    │       ├── radio-group.tsx
+    │       ├── resizable.tsx
+    │       ├── scroll-area.tsx
+    │       ├── select.tsx
+    │       ├── separator.tsx
+    │       ├── sheet.tsx
+    │       ├── sidebar.tsx
+    │       ├── skeleton.tsx
+    │       ├── slider.tsx
+    │       ├── sonner.tsx
+    │       ├── switch.tsx
+    │       ├── table.tsx
+    │       ├── tabs.tsx
+    │       ├── textarea.tsx
+    │       ├── toast.tsx
+    │       ├── toaster.tsx
+    │       ├── toggle-group.tsx
+    │       ├── toggle.tsx
+    │       ├── tooltip.tsx
+    │       ├── use-mobile.tsx
+    │       └── use-toast.ts
+    ├── components.json
+    ├── hooks
+    │   ├── use-mobile.tsx
+    │   └── use-toast.ts
+    ├── lib
+    │   └── utils.ts
+    ├── next.config.mjs
+    ├── package.json
+    ├── postcss.config.mjs
+    ├── src
+    │   ├── App.tsx
+    │   └── components
+    │       ├── cargo-management-system.tsx
+    │       ├── container-view.tsx
+    │       ├── pages
+    │       │   └── placement-page.tsx
+    │       ├── room-display.tsx
+    │       └── sidebar.tsx
+    ├── styles
+    │   └── globals.css
+    ├── tailwind.config.ts
+    └── tsconfig.json
+
 ```
 
 ---
