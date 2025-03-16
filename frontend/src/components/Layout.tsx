@@ -1,5 +1,5 @@
 import {Outlet} from 'react-router-dom';
-import Sidebar from './Sidebar.tsx';
+import Sidebar from './sidebar.tsx';
 import React from "react";
 
 export default function Layout() {
