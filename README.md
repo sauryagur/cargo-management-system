@@ -46,11 +46,8 @@ sudo apt install podman-docker
 # Build the container image
 podman build -t cms .
 
-# Verify the image exists
-podman images
-
 # Run the container and expose required ports
-podman run --publish 3000:3000 --publish 8000:8000 --name cms-container cms
+podman run --publish 5173:5173 --publish 8000:8000 --name cms-container cms
 ```
 
 ---

@@ -1,6 +1,6 @@
-import {Link, useLocation} from 'react-router-dom';
-import {cn} from '@/lib/utils';
-import {Button} from '@/components/ui/button';
+import { Link, useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
     Box,
     CalendarDays,
@@ -13,12 +13,12 @@ import {
     Pause,
     Play,
     Search as SearchIcon,
-    Trash2
-} from 'lucide-react';
-import {useState} from 'react';
-import {Input} from './ui/input';
+    Trash2,
+} from "lucide-react";
+import { useState } from "react";
+import { Input } from "./ui/input";
 
-export default function Sidebar({date, setDate}) {
+export default function Sidebar({ date, setDate }) {
     const location = useLocation();
     const [isSimulating, setIsSimulating] = useState(false);
     const [fastForwardDays, setFastForwardDays] = useState(1);
@@ -32,11 +32,11 @@ export default function Sidebar({date, setDate}) {
                         <Button
                             variant="ghost"
                             className={cn(
-                                'w-full justify-start text-white/70 hover:text-white hover:bg-white/10',
-                                location.pathname === '/' && 'bg-white/10 text-white'
+                                "w-full justify-start text-white/70 hover:text-white hover:bg-white/10",
+                                location.pathname === "/" && "bg-white/10 text-white"
                             )}
                         >
-                            <LayoutDashboard className="mr-2 h-4 w-4"/>
+                            <LayoutDashboard className="mr-2 h-4 w-4" />
                             Dashboard
                         </Button>
                     </Link>
@@ -44,11 +44,11 @@ export default function Sidebar({date, setDate}) {
                         <Button
                             variant="ghost"
                             className={cn(
-                                'w-full justify-start text-white/70 hover:text-white hover:bg-white/10',
-                                location.pathname === '/import' && 'bg-white/10 text-white'
+                                "w-full justify-start text-white/70 hover:text-white hover:bg-white/10",
+                                location.pathname === "/import" && "bg-white/10 text-white"
                             )}
                         >
-                            <Import className="mr-2 h-4 w-4"/>
+                            <Import className="mr-2 h-4 w-4" />
                             Import
                         </Button>
                     </Link>
@@ -56,11 +56,11 @@ export default function Sidebar({date, setDate}) {
                         <Button
                             variant="ghost"
                             className={cn(
-                                'w-full justify-start text-white/70 hover:text-white hover:bg-white/10',
-                                location.pathname === '/logs' && 'bg-white/10 text-white'
+                                "w-full justify-start text-white/70 hover:text-white hover:bg-white/10",
+                                location.pathname === "/logs" && "bg-white/10 text-white"
                             )}
                         >
-                            <FileText className="mr-2 h-4 w-4"/>
+                            <FileText className="mr-2 h-4 w-4" />
                             Logs
                         </Button>
                     </Link>
@@ -68,11 +68,11 @@ export default function Sidebar({date, setDate}) {
                         <Button
                             variant="ghost"
                             className={cn(
-                                'w-full justify-start text-white/70 hover:text-white hover:bg-white/10',
-                                location.pathname === '/place' && 'bg-white/10 text-white'
+                                "w-full justify-start text-white/70 hover:text-white hover:bg-white/10",
+                                location.pathname === "/place" && "bg-white/10 text-white"
                             )}
                         >
-                            <Box className="mr-2 h-4 w-4"/>
+                            <Box className="mr-2 h-4 w-4" />
                             Place
                         </Button>
                     </Link>
@@ -80,11 +80,11 @@ export default function Sidebar({date, setDate}) {
                         <Button
                             variant="ghost"
                             className={cn(
-                                'w-full justify-start text-white/70 hover:text-white hover:bg-white/10',
-                                location.pathname === '/placement' && 'bg-white/10 text-white'
+                                "w-full justify-start text-white/70 hover:text-white hover:bg-white/10",
+                                location.pathname === "/placement" && "bg-white/10 text-white"
                             )}
                         >
-                            <LayoutGrid className="mr-2 h-4 w-4"/>
+                            <LayoutGrid className="mr-2 h-4 w-4" />
                             Placement
                         </Button>
                     </Link>
@@ -92,11 +92,11 @@ export default function Sidebar({date, setDate}) {
                         <Button
                             variant="ghost"
                             className={cn(
-                                'w-full justify-start text-white/70 hover:text-white hover:bg-white/10',
-                                location.pathname === '/search' && 'bg-white/10 text-white'
+                                "w-full justify-start text-white/70 hover:text-white hover:bg-white/10",
+                                location.pathname === "/search" && "bg-white/10 text-white"
                             )}
                         >
-                            <SearchIcon className="mr-2 h-4 w-4"/>
+                            <SearchIcon className="mr-2 h-4 w-4" />
                             Search
                         </Button>
                     </Link>
@@ -104,11 +104,11 @@ export default function Sidebar({date, setDate}) {
                         <Button
                             variant="ghost"
                             className={cn(
-                                'w-full justify-start text-white/70 hover:text-white hover:bg-white/10',
-                                location.pathname === '/retrieve' && 'bg-white/10 text-white'
+                                "w-full justify-start text-white/70 hover:text-white hover:bg-white/10",
+                                location.pathname === "/retrieve" && "bg-white/10 text-white"
                             )}
                         >
-                            <PackageSearch className="mr-2 h-4 w-4"/>
+                            <PackageSearch className="mr-2 h-4 w-4" />
                             Retrieve
                         </Button>
                     </Link>
@@ -116,11 +116,11 @@ export default function Sidebar({date, setDate}) {
                         <Button
                             variant="ghost"
                             className={cn(
-                                'w-full justify-start text-white/70 hover:text-white hover:bg-white/10',
-                                location.pathname === '/waste' && 'bg-white/10 text-white'
+                                "w-full justify-start text-white/70 hover:text-white hover:bg-white/10",
+                                location.pathname === "/waste" && "bg-white/10 text-white"
                             )}
                         >
-                            <Trash2 className="mr-2 h-4 w-4"/>
+                            <Trash2 className="mr-2 h-4 w-4" />
                             Waste
                         </Button>
                     </Link>
@@ -131,7 +131,7 @@ export default function Sidebar({date, setDate}) {
                             variant="ghost"
                             className="w-full justify-start text-white/70 hover:text-white hover:bg-white/10"
                         >
-                            <CalendarDays className="mr-2 h-4 w-4"/>
+                            <CalendarDays className="mr-2 h-4 w-4" />
                             Date: {`${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`}
                         </Button>
                     </div>
@@ -144,9 +144,9 @@ export default function Sidebar({date, setDate}) {
                             onClick={() => setIsSimulating(!isSimulating)}
                         >
                             {isSimulating ? (
-                                <Pause className="mr-2 h-4 w-4"/>
+                                <Pause className="mr-2 h-4 w-4" />
                             ) : (
-                                <Play className="mr-2 h-4 w-4"/>
+                                <Play className="mr-2 h-4 w-4" />
                             )}
                             Simulate
                         </Button>
@@ -156,20 +156,19 @@ export default function Sidebar({date, setDate}) {
                                     type="number"
                                     placeholder="Days"
                                     value={fastForwardDays}
-                                    onChange={(e) => setFastForwardDays(e.target.value)}
-                                    min={0}
+                                    onChange={(e) => setFastForwardDays(Number(e.target.value) || 1)}
+                                    min={1}
                                     className="h-8 bg-white/5 border-white/10 text-white"
                                 />
                                 <Button
                                     variant="ghost"
                                     size="icon"
                                     className="h-8 w-8 text-white/70 hover:text-white hover:bg-white/10"
-                                    onClick={() => setDate((prevDate) => {
-                                        return new Date(prevDate.getTime() + 86400000 * parseInt(fastForwardDays)); // Adds exactly 1 day (24 * 60 * 60 * 1000 ms)
-                                    })}
-
+                                    onClick={() =>
+                                        setDate((prevDate) => new Date(prevDate.getTime() + 86400000 * (Number(fastForwardDays) || 1)))
+                                    }
                                 >
-                                    <FastForward className="h-4 w-4"/>
+                                    <FastForward className="h-4 w-4" />
                                 </Button>
                             </div>
                         )}
