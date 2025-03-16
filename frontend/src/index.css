@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap');
+
+.font-tektur {
+    font-family: 'Tektur', system-ui, sans-serif;
+}
+
+.bg-blueprint {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1054%26quot%3b)' fill='none'%3e%3crect width='1920' height='1080' x='0' y='0' fill='rgba(0%2c 3%2c 10%2c 1)'%3e%3c/rect%3e%3cpath d='M60 1080L1140 0L1296 0L216 1080z' fill='url(%26quot%3b%23SvgjsLinearGradient1055%26quot%3b)'%3e%3c/path%3e%3cpath d='M758.6 1080L1838.6 0L2072.6 0L992.6 1080z' fill='url(%26quot%3b%23SvgjsLinearGradient1055%26quot%3b)'%3e%3c/path%3e%3cpath d='M1816 1080L736 0L32.5 0L1112.5 1080z' fill='url(%26quot%3b%23SvgjsLinearGradient1056%26quot%3b)'%3e%3c/path%3e%3cpath d='M1225.4 1080L145.4000000000001 0L-685.5999999999999 0L394.4000000000001 1080z' fill='url(%26quot%3b%23SvgjsLinearGradient1056%26quot%3b)'%3e%3c/path%3e%3cpath d='M1372.1867481246713 1080L1920 532.1867481246713L1920 1080z' fill='url(%26quot%3b%23SvgjsLinearGradient1055%26quot%3b)'%3e%3c/path%3e%3cpath d='M0 1080L547.8132518753287 1080L 0 532.1867481246713z' fill='url(%26quot%3b%23SvgjsLinearGradient1056%26quot%3b)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1054'%3e%3crect width='1920' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient1055'%3e%3cstop stop-color='rgba(3%2c 16%2c 43%2c 0.2)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(3%2c 16%2c 43%2c 0.2)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient1056'%3e%3cstop stop-color='rgba(3%2c 16%2c 43%2c 0.2)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(3%2c 16%2c 43%2c 0.2)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 3.9%;
+        --primary: 0 0% 9%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 0 0% 96.1%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 0 0% 96.1%;
+        --muted-foreground: 0 0% 45.1%;
+        --accent: 0 0% 96.1%;
+        --accent-foreground: 0 0% 9%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 89.8%;
+        --ring: 0 0% 3.9%;
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 0 0% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 0 0% 9%;
+        --secondary: 0 0% 14.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 14.9%;
+        --muted-foreground: 0 0% 63.9%;
+        --accent: 0 0% 14.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 14.9%;
+        --input: 0 0% 14.9%;
+        --ring: 0 0% 83.1%;
+    }
+}

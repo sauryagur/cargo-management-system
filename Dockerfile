@@ -28,11 +28,8 @@ RUN cd frontend && pnpm install
 # Copy the entire project into the container
 COPY . .
 
-# Build the frontend (Next.js)
-RUN cd frontend && pnpm build
-
 # Expose necessary ports
-EXPOSE 3000 8000
+EXPOSE 5173 8000
 
 # Define PM2 process manager configuration
 COPY ecosystem.config.js .

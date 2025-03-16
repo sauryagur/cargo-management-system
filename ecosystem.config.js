@@ -12,7 +12,7 @@ module.exports = {
         {
             name: "frontend",
             script: "pnpm",
-            args: "start",
+            args: "dev",
             cwd: "frontend",
             env: {
                 PORT: 3000,
