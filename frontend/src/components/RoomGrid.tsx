@@ -122,7 +122,7 @@ export default function RoomGrid({ rooms }: { rooms: RoomProps[] }) {
                             setSelectedContainer(null);
                         }}
                         className={cn(
-                            'p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 transition-colors',
+                            'p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 min-w-fit transition-colors',
                             selectedRoom === room.id && 'bg-white/20 border-white/40'
                         )}
                     >
@@ -145,7 +145,7 @@ export default function RoomGrid({ rooms }: { rooms: RoomProps[] }) {
                                         )
                                     }
                                     className={cn(
-                                        'p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 transition-colors',
+                                        'p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 min-w-fit transition-colors',
                                         selectedContainer === container.id && 'bg-white/20 border-white/40'
                                     )}
                                 >
