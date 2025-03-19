@@ -14,7 +14,6 @@ export default function Logs() {
                 setLogs("Failed to load logs.");
             }
         };
-
         fetchLogs();
     }, []);
 

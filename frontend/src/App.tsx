@@ -9,13 +9,26 @@ import Retrieve from '@/pages/Retrieve';
 import Search from '@/pages/Search';
 import Simulate from '@/pages/Simulate';
 import Waste from '@/pages/Waste';
+import {useState} from "react";
 
 function App() {
-    // @ts-ignore
+    const [isSimulating, setIsSimulating] = useState<boolean>(false);
+    const [fastForwardDays, setFastForwardDays] = useState<number>(1);
+
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Layout/>}>
+                <Route
+                    path="/"
+                    element={
+                        <Layout
+                            isSimulating={isSimulating}
+                            setIsSimulating={setIsSimulating}
+                            fastForwardDays={fastForwardDays}
+                            setFastForwardDays={setFastForwardDays}
+                        />
+                    }
+                >
                     <Route index element={<Dashboard/>}/>
                     <Route path="import" element={<Import/>}/>
                     <Route path="logs" element={<Logs/>}/>
